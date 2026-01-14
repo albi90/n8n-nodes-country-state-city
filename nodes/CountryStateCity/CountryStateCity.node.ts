@@ -10,7 +10,7 @@ import {
 const { Country, State, City } = require('country-state-city');
 
 // Importar mapeamentos ISO
-import { ISO3_TO_ISO2_MAPPING } from './iso-mappings';
+import { ISO3_TO_ISO2_MAPPING, ISO2_TO_ISO3_MAPPING } from './iso-mappings';
 
 export class CountryStateCity implements INodeType {
 	description: INodeTypeDescription = {
