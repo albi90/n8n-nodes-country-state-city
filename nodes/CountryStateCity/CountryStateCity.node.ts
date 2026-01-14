@@ -128,7 +128,11 @@ export class CountryStateCity implements INodeType {
 			let result: any = null;
 
 			if (operation === 'getCountryByCode') {
-				result = Country.getCountryByCode(countryCode);
+				const iso3Code = ISO2_TO_ISO3_MAPPING[countryCode.toUpperCase()];
+				result = Country.getCountryByCode(countryCode);					
+				if (result) {
+					result = { ...result, iso3Code: iso3Code.toUpperCase() };
+				}
 			} else if (operation === 'getCountryByISO3Code') {
 				// Converter ISO3 para ISO2 e buscar o país
 				const iso2Code = ISO3_TO_ISO2_MAPPING[countryISO3Code.toUpperCase()];
